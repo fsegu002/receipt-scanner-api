@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const helmet = require('helmet')
@@ -21,6 +22,7 @@ app.use(morgan('tiny'))
 app.use('/', routes)
 
 app.listen(config.server.port, () => {
+  console.log(`ENVIRONMENT: ${process.env.NODE_ENV}`)
   console.log(`Magic happens on port ${config.server.port}`)
 })
 
